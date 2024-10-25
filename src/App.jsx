@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 
 function App() {
   return (
     <>
-    <Navbar />
-        <h1>
-          Hello world!
-        </h1>
+    <Layout />
+        
     </>
   );
 }

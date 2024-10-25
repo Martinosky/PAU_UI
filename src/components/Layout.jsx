@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Inicio from '../pages/Inicio'
 import Ayudantes from '../pages/Ayudantes'
-import Cursos from '../pages/Ayudantes'
+import Cursos from '../pages/Cursos'
 import Navbar from './Navbar'
 
 const Layout = () => {
@@ -14,8 +14,8 @@ const Layout = () => {
           <div className='layout__page'>
             <Routes>
               <Route path='/' element={<Inicio />} />
-              <Route path='Ayudantes' element={<Ayudantes/>} />
-              <Route path='Cursos' element={<Cursos/>} />
+              <Route path='/Ayudantes' element={<Ayudantes/>} />
+              <Route path='/Cursos' element={<Cursos/>} />
             </Routes>
           </div>
           </div>

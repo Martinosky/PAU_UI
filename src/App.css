@@ -2,45 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos generales */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0; /* Elimina márgenes del body */
 }
 
+/* Estilos de fondo personalizados */
+.bg-white {
+  background-color: white; /* Fondo blanco */
+}
+
+.bg-dark {
+  background-color: #333; /* Fondo oscuro */
+  color: white; /* Color de texto blanco para contraste */
+}
+
+.bg-terracota {
+  background-color: #E2725B; /* Fondo terracota */
+  color: white; /* Color de texto blanco para contraste */
+}
+
+.bg-khaki {
+  background-color: #f0e68c; /* Fondo caqui */
+  color: black; /* Color de texto negro para contraste */
+}
+
+/* Agrega estas clases a tu App.css */
+.text-white {
+  color: white; /* Color de texto blanco */
+}
+
+.text-black {
+  color: black; /* Color de texto negro */
+}
+
+
+/* Estilos de logo */
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 6em; /* Altura del logo */
+  padding: 1.5em; /* Espaciado interior */
+  will-change: filter; /* Mejora de rendimiento para animaciones */
+  transition: filter 300ms; /* Transición suave al pasar el mouse */
 }
 
+/* Animación de logo */
 @keyframes logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Inicio de la rotación */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Fin de la rotación */
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin infinite 20s linear; /* Animación de rotación para el logo */
   }
 }
 
+/* Estilos de tarjetas */
 .card {
-  padding: 2em;
+  padding: 2em; /* Espaciado interior de las tarjetas */
 }
 
+/* Estilo para enlaces de documentación */
 .read-the-docs {
-  color: #888;
+  color: #888; /* Color gris para enlaces de documentación */
 }

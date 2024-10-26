@@ -1,0 +1,62 @@
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .personal-info, .subjects {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 2px solid #666;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  button {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #333;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

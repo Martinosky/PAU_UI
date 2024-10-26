@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Ayudantes.css';
 import data from '../data.json';
 
 function Ayudantes() {
   const { courseId } = useParams(); // Obtener el ID del curso desde la URL
+  const navigate = useNavigate(); // Hook para navegar entre rutas
   const [applicants, setApplicants] = useState([]);
   const [courseInfo, setCourseInfo] = useState({ campus: '', asignatura: '' });
 
@@ -27,7 +28,12 @@ function Ayudantes() {
   return (
     <div className="container">
       <div className="ayudantes">
-        <h2>Ayudantes</h2>
+        <div className="header">
+          <button className="back-btn" onClick={() => navigate('/Cursos')}>
+            ← Volver a Cursos
+          </button>
+          <h2>Ayudantes</h2>
+        </div>
         <p>Datos de la asignatura para la selección de ayudantes.</p>
         <div className="info">
           <p><strong>Campus:</strong> {courseInfo.campus}</p>
@@ -86,3 +92,4 @@ function Ayudantes() {
 }
 
 export default Ayudantes;
+

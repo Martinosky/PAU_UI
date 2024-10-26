@@ -70,3 +70,20 @@
 .read-the-docs {
   color: #888; /* Color gris para enlaces de documentación */
 }
+
+/* Añade este estilo para asegurar que el texto siempre se vea con colores de alto contraste */
+.text-gray-900 {
+  color: #1a1a1a;
+}
+
+.bg-dark .text-gray-900 {
+  color: white; /* Asegura que el texto sea visible en fondos oscuros */
+}
+
+.bg-terracota .text-gray-900 {
+  color: white;
+}
+
+.bg-khaki .text-gray-900 {
+  color: black;
+}

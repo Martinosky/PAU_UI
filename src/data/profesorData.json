@@ -1,0 +1,19 @@
+{
+    "nombreCompleto": "Juan Pérez González",
+    "rut": "12.345.678-9",
+    "emailInstitucional": "juan.perez@usm.cl",
+    "emailPersonal": "jperez@gmail.com",
+    "celular": "912345678",
+    "fotoPerfil": "/images/perfil.jpg", 
+    "cursos": [
+      {
+        "nombre": "TEL101 - Introducción a las Telecomunicaciones",
+        "semestre": "Otoño 2024"
+      },
+      {
+        "nombre": "TEL203 - Redes de Computadores",
+        "semestre": "Primavera 2024"
+      }
+    ]
+  }
+  

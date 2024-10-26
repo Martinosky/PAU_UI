@@ -1,0 +1,82 @@
+/* AyudantesTable.css */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .ayudantes {
+    margin-top: 20px;
+  }
+  
+  .ayudantes h2 {
+    color: #f0f0f0;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .info p {
+    margin: 5px 0;
+  }
+  
+  .buttons .btn {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .buttons .btn.secondary {
+    background-color: #555;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444;
+    color: #f0f0f0;
+  }
+  
+  th {
+    background-color: #333;
+  }
+  
+  td {
+    background-color: #2a2a2a;
+  }
+  
+  tbody tr:hover {
+    background-color: #3a3a3a;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #666;
+  }
+  
+  .actions .icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #f0f0f0;
+    margin: 0 2px;
+  }
+  
+  .actions .icon-btn:hover {
+    color: #00aaff;
+  }
+  

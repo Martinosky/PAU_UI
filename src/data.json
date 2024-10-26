@@ -1,0 +1,61 @@
+{
+    "courses": [
+      {
+        "sigla": "MAT101",
+        "asignatura": "Matemáticas I",
+        "creditos": 5,
+        "paralelo": 1,
+        "area": "Ciencias Básicas",
+        "campus": "Central",
+        "applicants": [
+          {
+            "alumno": "Juan Pérez",
+            "nivel": 3,
+            "pa": "PA3",
+            "vecesAyu": 2,
+            "tipo": "Regular",
+            "paralelo": 1,
+            "prioPost": "Alta"
+          },
+          {
+            "alumno": "Ana García",
+            "nivel": 2,
+            "pa": "PA2",
+            "vecesAyu": 1,
+            "tipo": "Reforzamiento",
+            "paralelo": 1,
+            "prioPost": "Media"
+          }
+        ]
+      },
+      {
+        "sigla": "FIS102",
+        "asignatura": "Física II",
+        "creditos": 4,
+        "paralelo": 2,
+        "area": "Ciencias Básicas",
+        "campus": "Sur",
+        "applicants": [
+          {
+            "alumno": "Carlos López",
+            "nivel": 4,
+            "pa": "PA4",
+            "vecesAyu": 3,
+            "tipo": "Avanzado",
+            "paralelo": 2,
+            "prioPost": "Baja"
+          },
+          {
+            "alumno": "María Rodríguez",
+            "nivel": 1,
+            "pa": "PA1",
+            "vecesAyu": 0,
+            "tipo": "Regular",
+            "paralelo": 2,
+            "prioPost": "Alta"
+          }
+        ]
+      }
+    ]
+  }
+  

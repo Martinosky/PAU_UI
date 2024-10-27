@@ -11,7 +11,8 @@ function Ayudantes() {
   const [courseInfo, setCourseInfo] = useState({ campus: '', asignatura: '' });
   const [selectedApplicant, setSelectedApplicant] = useState(null);
   const [priorities, setPriorities] = useState({});
-  const [selectionOrder, setSelectionOrder] = useState(1); // Contador global
+  const [selectionOrder, setSelectionOrder] = useState(1);
+  const [showSuccessModal, setShowSuccessModal] = useState(false); // Estado para el pop-up de éxito
 
   useEffect(() => {
     const selectedCourse = data.courses.find(course => course.sigla === courseId);
@@ -40,6 +41,11 @@ function Ayudantes() {
     setSelectedApplicant(null);
   };
 
+  const showSuccessPopup = () => {
+    setShowSuccessModal(true);
+    setTimeout(() => setShowSuccessModal(false), 2000); // Ocultar después de 2 segundos
+  };
+
   const handleDeleteApplicant = (index) => {
     const updatedApplicants = applicants.filter((_, i) => i !== index);
     setApplicants(updatedApplicants);
@@ -53,10 +59,8 @@ function Ayudantes() {
       const currentPriority = prevPriorities[index];
 
       if (currentPriority !== null) {
-        // Si el ayudante ya estaba seleccionado, se deselecciona
         const updatedPriorities = { ...prevPriorities };
 
-        // Restar 1 a la prioridad de todos los ayudantes seleccionados con prioridad mayor al actual
         for (const key in updatedPriorities) {
           if (updatedPriorities[key] > currentPriority) {
             updatedPriorities[key] -= 1;
@@ -64,16 +68,16 @@ function Ayudantes() {
         }
 
         updatedPriorities[index] = null;
-        setSelectionOrder(selectionOrder - 1); // Disminuir el contador global
+        setSelectionOrder(selectionOrder - 1);
         return updatedPriorities;
       } else {
-        // Si el ayudante no está seleccionado, se asigna la prioridad actual y se incrementa el contador global
+        showSuccessPopup(); // Mostrar el pop-up de éxito
         return { ...prevPriorities, [index]: selectionOrder };
       }
     });
 
     if (priorities[index] === null) {
-      setSelectionOrder(selectionOrder + 1); // Incrementar el contador global solo si se selecciona
+      setSelectionOrder(selectionOrder + 1);
     }
   };
 
@@ -148,7 +152,16 @@ function Ayudantes() {
       </div>
       <Footer />
 
-      {/* Modal */}
+      {/* Pop-up de éxito */}
+      {showSuccessModal && (
+        <div className="modal-overlay" onClick={() => setShowSuccessModal(false)}>
+          <div className="modal-content success-popup">
+            <h3>¡Ayudante seleccionado con éxito!</h3>
+            <button className="close-btn" onClick={() => setShowSuccessModal(false)}>Cerrar</button>
+          </div>
+        </div>
+      )}
+
       {selectedApplicant && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -176,5 +189,3 @@ function Ayudantes() {
 }
 
 export default Ayudantes;
-
-

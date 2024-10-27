@@ -1,61 +1,205 @@
 {
-    "courses": [
-      {
-        "sigla": "MAT101",
-        "asignatura": "Matemáticas I",
-        "creditos": 5,
-        "paralelo": 1,
-        "area": "Ciencias Básicas",
-        "campus": "Central",
-        "applicants": [
-          {
-            "alumno": "Juan Pérez",
-            "nivel": 3,
-            "pa": "PA3",
-            "vecesAyu": 2,
-            "tipo": "Regular",
-            "paralelo": 1,
-            "prioPost": "Alta"
-          },
-          {
-            "alumno": "Ana García",
-            "nivel": 2,
-            "pa": "PA2",
-            "vecesAyu": 1,
-            "tipo": "Reforzamiento",
-            "paralelo": 1,
-            "prioPost": "Media"
-          }
-        ]
-      },
-      {
-        "sigla": "FIS102",
-        "asignatura": "Física II",
-        "creditos": 4,
-        "paralelo": 2,
-        "area": "Ciencias Básicas",
-        "campus": "Sur",
-        "applicants": [
-          {
-            "alumno": "Carlos López",
-            "nivel": 4,
-            "pa": "PA4",
-            "vecesAyu": 3,
-            "tipo": "Avanzado",
-            "paralelo": 2,
-            "prioPost": "Baja"
-          },
-          {
-            "alumno": "María Rodríguez",
-            "nivel": 1,
-            "pa": "PA1",
-            "vecesAyu": 0,
-            "tipo": "Regular",
-            "paralelo": 2,
-            "prioPost": "Alta"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "courses": [
+    {
+      "sigla": "MAT101",
+      "asignatura": "Matemáticas I",
+      "creditos": 5,
+      "paralelo": 1,
+      "area": "Ciencias Básicas",
+      "campus": "Central",
+      "applicants": [
+        {
+          "alumno": "Juan Pérez",
+          "nivel": 3,
+          "pa": "PA3",
+          "vecesAyu": 2,
+          "tipo": "Regular",
+          "paralelo": 1,
+          "prioPost": 8000,
+          "carrera": "Ingeniería Civil",
+          "añoIngreso": 2021,
+          "rol": "123456",
+          "celular": "987654321",
+          "correo": "juan.perez@example.com",
+          "direccion": "Av. Siempre Viva 123"
+        },
+        {
+          "alumno": "Ana García",
+          "nivel": 2,
+          "pa": "PA2",
+          "vecesAyu": 1,
+          "tipo": "Reforzamiento",
+          "paralelo": 1,
+          "prioPost": 5500,
+          "carrera": "Ingeniería Comercial",
+          "añoIngreso": 2022,
+          "rol": "654321",
+          "celular": "912345678",
+          "correo": "ana.garcia@example.com",
+          "direccion": "Calle Falsa 456"
+        }
+      ]
+    },
+    {
+      "sigla": "FIS102",
+      "asignatura": "Física II",
+      "creditos": 4,
+      "paralelo": 2,
+      "area": "Ciencias Básicas",
+      "campus": "Sur",
+      "applicants": [
+        {
+          "alumno": "Carlos López",
+          "nivel": 4,
+          "pa": "PA4",
+          "vecesAyu": 3,
+          "tipo": "Avanzado",
+          "paralelo": 2,
+          "prioPost": 4500,
+          "carrera": "Ingeniería Mecánica",
+          "añoIngreso": 2020,
+          "rol": "789123",
+          "celular": "934567890",
+          "correo": "carlos.lopez@example.com",
+          "direccion": "Av. Principal 789"
+        },
+        {
+          "alumno": "María Rodríguez",
+          "nivel": 1,
+          "pa": "PA1",
+          "vecesAyu": 0,
+          "tipo": "Regular",
+          "paralelo": 2,
+          "prioPost": 6500,
+          "carrera": "Ingeniería Electrónica",
+          "añoIngreso": 2023,
+          "rol": "321987",
+          "celular": "900123456",
+          "correo": "maria.rodriguez@example.com",
+          "direccion": "Calle Secundaria 101"
+        }
+      ]
+    },
+    {
+      "sigla": "BIO201",
+      "asignatura": "Biología I",
+      "creditos": 3,
+      "paralelo": 1,
+      "area": "Ciencias Naturales",
+      "campus": "Norte",
+      "applicants": [
+        {
+          "alumno": "Luis Martínez",
+          "nivel": 2,
+          "pa": "PA2",
+          "vecesAyu": 1,
+          "tipo": "Reforzamiento",
+          "paralelo": 1,
+          "prioPost": 7000,
+          "carrera": "Biotecnología",
+          "añoIngreso": 2022,
+          "rol": "852369",
+          "celular": "987456123",
+          "correo": "luis.martinez@example.com",
+          "direccion": "Calle Verde 12"
+        },
+        {
+          "alumno": "Clara Sánchez",
+          "nivel": 1,
+          "pa": "PA1",
+          "vecesAyu": 0,
+          "tipo": "Regular",
+          "paralelo": 1,
+          "prioPost": 6000,
+          "carrera": "Biología",
+          "añoIngreso": 2023,
+          "rol": "951753",
+          "celular": "901234567",
+          "correo": "clara.sanchez@example.com",
+          "direccion": "Av. Larga 54"
+        }
+      ]
+    },
+    {
+      "sigla": "QUI202",
+      "asignatura": "Química II",
+      "creditos": 4,
+      "paralelo": 2,
+      "area": "Ciencias Químicas",
+      "campus": "Central",
+      "applicants": [
+        {
+          "alumno": "Miguel Torres",
+          "nivel": 3,
+          "pa": "PA3",
+          "vecesAyu": 1,
+          "tipo": "Avanzado",
+          "paralelo": 2,
+          "prioPost": 5600,
+          "carrera": "Ingeniería Química",
+          "añoIngreso": 2021,
+          "rol": "753951",
+          "celular": "912345678",
+          "correo": "miguel.torres@example.com",
+          "direccion": "Calle Azul 99"
+        },
+        {
+          "alumno": "Sofía Luna",
+          "nivel": 4,
+          "pa": "PA4",
+          "vecesAyu": 2,
+          "tipo": "Regular",
+          "paralelo": 2,
+          "prioPost": 7600,
+          "carrera": "Ingeniería Ambiental",
+          "añoIngreso": 2020,
+          "rol": "159357",
+          "celular": "923456789",
+          "correo": "sofia.luna@example.com",
+          "direccion": "Calle Roja 111"
+        }
+      ]
+    },
+    {
+      "sigla": "INF103",
+      "asignatura": "Informática III",
+      "creditos": 5,
+      "paralelo": 1,
+      "area": "Ciencias de la Computación",
+      "campus": "Norte",
+      "applicants": [
+        {
+          "alumno": "Jorge Rojas",
+          "nivel": 3,
+          "pa": "PA3",
+          "vecesAyu": 1,
+          "tipo": "Avanzado",
+          "paralelo": 1,
+          "prioPost": 5000,
+          "carrera": "Ingeniería en Computación",
+          "añoIngreso": 2021,
+          "rol": "951123",
+          "celular": "934567891",
+          "correo": "jorge.rojas@example.com",
+          "direccion": "Calle Amarilla 12"
+        },
+        {
+          "alumno": "Laura Estrada",
+          "nivel": 2,
+          "pa": "PA2",
+          "vecesAyu": 0,
+          "tipo": "Reforzamiento",
+          "paralelo": 1,
+          "prioPost": 6200,
+          "carrera": "Ingeniería en Software",
+          "añoIngreso": 2022,
+          "rol": "951124",
+          "celular": "912345671",
+          "correo": "laura.estrada@example.com",
+          "direccion": "Calle Morada 34"
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Inicio', href: '/Inicio', current: true },
-  { name: 'Cursos', href: '/Cursos', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Inicio', href: '/Inicio' },
+  { name: 'Cursos', href: '/Cursos' },
+  { name: 'Projects', href: '#' },
+  { name: 'Calendar', href: '#' },
 ];
 
 function classNames(...classes) {
@@ -16,9 +16,13 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const location = useLocation();
-  
-  // No mostrar la Navbar si estamos en la Página Inicial
-  if (location.pathname === '/') {
+  const [currentPage, setCurrentPage] = useState(location.pathname);
+
+  useEffect(() => {
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
+
+  if (currentPage === '/') {
     return null; // O puedes retornar un <></> si prefieres
   }
 
@@ -48,9 +52,9 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    aria-current={item.current ? 'page' : undefined}
+                    onClick={() => setCurrentPage(item.href)} // Actualiza el estado al hacer clic
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                       'rounded-md px-3 py-2 text-sm font-medium'
                     )}
                   >
@@ -76,8 +80,8 @@ export default function Navbar() {
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
                   <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt="User"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     className="h-8 w-8 rounded-full"
                   />
                 </MenuButton>
@@ -111,9 +115,9 @@ export default function Navbar() {
               key={item.name}
               as={Link}
               to={item.href}
-              aria-current={item.current ? 'page' : undefined}
+              onClick={() => setCurrentPage(item.href)} // Actualiza el estado al hacer clic
               className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                 'block rounded-md px-3 py-2 text-base font-medium'
               )}
             >

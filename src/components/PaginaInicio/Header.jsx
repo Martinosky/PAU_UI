@@ -11,7 +11,7 @@ function Header() {
       </div>
       <button 
         onClick={() => navigate('/Inicio')} // Navega a la página de Inicio al hacer clic
-        className="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded"
+        className="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded text-xl"
       >
         Acceso
       </button>

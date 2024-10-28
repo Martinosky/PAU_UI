@@ -10,13 +10,13 @@ function Calendar() {
 
   return (
     <div className="py-8 px-4">
-      <h2 className="text-xl font-bold text-center mb-6">Calendario proceso Ayudantías Docentes</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Calendario proceso Ayudantías Docentes</h2>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {events.map((event, index) => (
           <div key={index} className="bg-gray-100 p-4 rounded shadow-md">
-            <h3 className="font-semibold text-blue-800 mb-2">{event.title}</h3>
-            <p>Inicio: {event.start}</p>
-            <p>Término: {event.end}</p>
+            <h3 className="font-semibold text-xl text-blue-800 mb-2">{event.title}</h3>
+            <p className='text-xl'>Inicio: {event.start}</p>
+            <p className='text-xl'>Término: {event.end}</p>
           </div>
         ))}
       </div>

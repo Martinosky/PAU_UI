@@ -4,7 +4,7 @@
     "emailInstitucional": "juan.perez@usm.cl",
     "emailPersonal": "jperez@gmail.com",
     "celular": "912345678",
-    "fotoPerfil": "/images/perfil.jpg", 
+    "fotoPerfil": "", 
     "cursos": [
       {
         "nombre": "TEL101 - Introducción a las Telecomunicaciones",

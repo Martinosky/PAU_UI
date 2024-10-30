@@ -32,22 +32,22 @@ const Settings = ({ onBackgroundChange, onLanguageChange }) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className={`${containerClass} ${textColorClass}`}>
-        <h1 className="text-2xl font-semibold mb-6">Settings</h1>
+        <h1 className="text-2xl font-semibold mb-6">Configuración</h1>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Background:</label>
+          <label className="block text-sm font-medium mb-2">Tema de fondo:</label>
           <select
             value={background}
             onChange={handleBackgroundChange}
             className={`w-full p-2 border rounded-lg ${selectBackgroundClass} focus:outline-none focus:ring-2 focus:ring-blue-500`}
           >
-            <option value="bg-white" className="bg-white text-black">Light</option>
-            <option value="bg-dark" className="bg-gray-700 text-white">Dark</option>
+            <option value="bg-white" className="bg-white text-black">Claro</option>
+            <option value="bg-dark" className="bg-gray-700 text-white">Oscuro</option>
             <option value="bg-terracota" className="bg-red-800 text-white">Terracota</option>
             <option value="bg-khaki" className="bg-yellow-200 text-black">Khaki</option>
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Language:</label>
+          <label className="block text-sm font-medium mb-2">Idioma:</label>
           <select
             value={language}
             onChange={handleLanguageChange}

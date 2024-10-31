@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Disclosure, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
+import LogoUSM from '../assets/Logo-usm.svg';
 
 const navigation = [
   { name: 'Inicio', href: '/Inicio' },
@@ -23,69 +24,62 @@ export default function Navbar() {
   }, [location.pathname]);
 
   if (currentPage === '/') {
-    return null; // O puedes retornar un <></> si prefieres
+    return null;
   }
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
-            </DisclosureButton>
+    <Disclosure as="nav" className="bg-white shadow-lg border-b border-gray-200">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="relative flex h-20 items-center">
+          {/* Logo alineado a la izquierda */}
+          <div className="flex items-center mr-8"> 
+            <img src={LogoUSM} alt="Logo USM" className="h-12 w-auto ml-0" />
           </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <img
-                alt="Your Company"
-                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
-              />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => setCurrentPage(item.href)} // Actualiza el estado al hacer clic
-                    className={classNames(
-                      currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+
+          {/* Menú de navegación más alineado a la izquierda */}
+          <div className="hidden sm:flex sm:space-x-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                onClick={() => setCurrentPage(item.href)}
+                className={classNames(
+                  currentPage === item.href
+                    ? 'bg-blue-200 text-blue-800 shadow-lg'
+                    : 'text-gray-600 hover:bg-blue-100 hover:text-blue-700',
+                  'rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 ease-in-out'
+                )}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '0.5rem 1rem',
+                  boxShadow: currentPage === item.href ? '0px 4px 6px rgba(0, 0, 0, 0.1)' : '',
+                  transition: 'background-color 0.3s ease',
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
+          {/* Icono de campana y menú de usuario a la derecha */}
+          <div className="ml-auto flex items-center pr-2">
             <button
               type="button"
-              className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="rounded-full bg-gray-200 p-1 text-gray-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <span className="absolute -inset-1.5" />
-              <span className="sr-only">View notifications</span>
-              <BellIcon aria-hidden="true" className="h-6 w-6" />
+              <BellIcon className="h-6 w-6" aria-hidden="true" />
             </button>
 
             <Menu as="div" className="relative ml-3">
-              <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    alt="User"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="h-8 w-8 rounded-full"
-                  />
-                </MenuButton>
-              </div>
+              <MenuButton className="flex rounded-full bg-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <img
+                  className="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt="User"
+                />
+              </MenuButton>
               <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5">
                 <MenuItem>
                   <Link to="/profile" className="block px-4 py-2 text-sm text-gray-700">
@@ -94,7 +88,7 @@ export default function Navbar() {
                 </MenuItem>
                 <MenuItem>
                   <Link to="/settings" className="block px-4 py-2 text-sm text-gray-700">
-                    Configuración 
+                    Configuración
                   </Link>
                 </MenuItem>
                 <MenuItem>
@@ -108,24 +102,24 @@ export default function Navbar() {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
+      <Disclosure.Panel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {navigation.map((item) => (
-            <DisclosureButton
+            <Disclosure.Button
               key={item.name}
               as={Link}
               to={item.href}
-              onClick={() => setCurrentPage(item.href)} // Actualiza el estado al hacer clic
+              onClick={() => setCurrentPage(item.href)}
               className={classNames(
-                currentPage === item.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium'
+                currentPage === item.href ? 'bg-blue-100 text-blue-800' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700',
+                'block rounded-full px-3 py-2 text-base font-medium'
               )}
             >
               {item.name}
-            </DisclosureButton>
+            </Disclosure.Button>
           ))}
         </div>
-      </DisclosurePanel>
+      </Disclosure.Panel>
     </Disclosure>
   );
 }

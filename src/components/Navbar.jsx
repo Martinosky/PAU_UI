@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Disclosure, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 import LogoUSM from '../assets/Logo-usm.svg';
 
 const navigation = [
   { name: 'Inicio', href: '/Inicio' },
   { name: 'Cursos', href: '/Cursos' },
-  { name: 'Projects', href: '#' },
-  { name: 'Calendar', href: '#' },
 ];
 
 function classNames(...classes) {
@@ -63,15 +61,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Icono de campana y menú de usuario a la derecha */}
+          {/* Menú de usuario a la derecha */}
           <div className="ml-auto flex items-center pr-2">
-            <button
-              type="button"
-              className="rounded-full bg-gray-200 p-1 text-gray-600 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <BellIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-
             <Menu as="div" className="relative ml-3">
               <MenuButton className="flex rounded-full bg-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <img

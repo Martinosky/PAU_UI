@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Disclosure, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Disclosure, Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
 import LogoUSM from '../assets/Logo-usm.svg';
 
@@ -13,7 +12,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar() {
+export default function Navbar({ backgroundColorClass }) {
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(location.pathname);
 
@@ -25,13 +24,37 @@ export default function Navbar() {
     return null;
   }
 
+  // Definir colores según el fondo
+  const textColorClass = 
+    backgroundColorClass === 'bg-dark' || backgroundColorClass === 'bg-terracota'
+      ? 'text-white'
+      : backgroundColorClass === 'bg-khaki'
+      ? 'text-black'
+      : 'text-black';
+
+  const bgColorClass = 
+    backgroundColorClass === 'bg-dark'
+      ? 'bg-gray-800'
+      : backgroundColorClass === 'bg-terracota'
+      ? 'bg-red-900'
+      : backgroundColorClass === 'bg-khaki'
+      ? 'bg-yellow-200'
+      : 'bg-white';
+
+  const handleLogout = () => {
+    // Limpiar almacenamiento local
+    localStorage.removeItem('background'); // Borrar la configuración de fondo
+    localStorage.removeItem('priorities'); // Borrar las prioridades si es necesario
+    // Otras limpiezas de estado si es necesario
+  };
+
   return (
-    <Disclosure as="nav" className="bg-white shadow-lg border-b border-gray-200">
+    <Disclosure as="nav" className={`${bgColorClass} shadow-lg border-b border-gray-200`}>
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center">
           {/* Logo alineado a la izquierda */}
           <div className="flex items-center mr-8"> 
-            <img src={LogoUSM} alt="Logo USM" className="h-12 w-auto ml-0" />
+            <img src={LogoUSM} alt="Logo USM" className="h-12 w-auto" />
           </div>
 
           {/* Menú de navegación más alineado a la izquierda */}
@@ -44,7 +67,7 @@ export default function Navbar() {
                 className={classNames(
                   currentPage === item.href
                     ? 'bg-blue-200 text-blue-800 shadow-lg'
-                    : 'text-gray-600 hover:bg-blue-100 hover:text-blue-700',
+                    : `${textColorClass} hover:bg-blue-100 hover:text-blue-700`,
                   'rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200 ease-in-out'
                 )}
                 style={{
@@ -83,7 +106,7 @@ export default function Navbar() {
                   </Link>
                 </MenuItem>
                 <MenuItem>
-                  <a href="/" className="block px-4 py-2 text-sm text-gray-700">
+                  <a href="/" className="block px-4 py-2 text-sm text-gray-700" onClick={handleLogout}>
                     Cerrar sesión
                   </a>
                 </MenuItem>
@@ -102,7 +125,7 @@ export default function Navbar() {
               to={item.href}
               onClick={() => setCurrentPage(item.href)}
               className={classNames(
-                currentPage === item.href ? 'bg-blue-100 text-blue-800' : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700',
+                currentPage === item.href ? 'bg-blue-100 text-blue-800' : textColorClass,
                 'block rounded-full px-3 py-2 text-base font-medium'
               )}
             >

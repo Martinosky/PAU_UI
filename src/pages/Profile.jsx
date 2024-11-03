@@ -25,21 +25,42 @@ const Profile = ({ backgroundColorClass }) => {
     setEditMode(false);
   };
 
-  const textColorClass =
-    backgroundColorClass === 'bg-dark' || backgroundColorClass === 'bg-terracota'
-      ? 'text-white'
-      : 'text-black';
+  // Definir clases de color según el fondo seleccionado
+const textColorClass = 
+backgroundColorClass === 'bg-dark' || backgroundColorClass === 'bg-terracota'
+  ? 'text-white'
+  : backgroundColorClass === 'bg-khaki'
+  ? 'text-black'
+  : 'text-black';
+
+const containerBackgroundClass = 
+backgroundColorClass === 'bg-dark'
+  ? 'bg-gray-800'
+  : backgroundColorClass === 'bg-terracota'
+  ? 'bg-red-900'
+  : backgroundColorClass === 'bg-khaki'
+  ? 'bg-yellow-200'
+  : 'bg-white';
+
+const borderColorClass = 
+backgroundColorClass === 'bg-dark'
+  ? 'border-gray-400'
+  : backgroundColorClass === 'bg-terracota'
+  ? 'border-yellow-500'
+  : backgroundColorClass === 'bg-khaki'
+  ? 'border-gray-500'
+  : 'border-gray-300';
 
   return (
     <div className={`min-h-screen flex justify-center items-center ${backgroundColorClass}`}>
-      <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-8">
+      <div className={`max-w-md w-full shadow-lg rounded-lg p-8 border-4 ${borderColorClass} ${containerBackgroundClass}`}>
         <h1 className={`text-3xl font-bold text-center mb-6 ${textColorClass}`}>Perfil del Profesor</h1>
 
         <div className="flex justify-center mb-6">
           <img
-            src={profesor.fotoPerfil || 'src/assets/defaultProfile.jpg'}
+            src={profesor.fotoPerfil || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'}
             alt="Foto de perfil"
-            className="w-24 h-24 rounded-full shadow-md"
+            className="w-24 h-24 rounded-full shadow-md border-2 border-gray-300"
           />
         </div>
 
@@ -58,18 +79,18 @@ const Profile = ({ backgroundColorClass }) => {
                 <small className="text-gray-500">Anterior: {profesor.nombreCompleto}</small>
               </>
             ) : (
-              <p className="text-gray-700">{profesor.nombreCompleto}</p>
+              <p className={`${textColorClass}`}>{profesor.nombreCompleto}</p>
             )}
           </div>
 
           <div className="mb-4">
             <label className="font-semibold block">RUT:</label>
-            <p className="text-gray-700">{profesor.rut}</p>
+            <p className={`${textColorClass}`}>{profesor.rut}</p>
           </div>
 
           <div className="mb-4">
             <label className="font-semibold block">Correo Institucional:</label>
-            <p className="text-gray-700">{profesor.emailInstitucional}</p>
+            <p className={`${textColorClass}`}>{profesor.emailInstitucional}</p>
           </div>
 
           <div className="mb-4">
@@ -86,7 +107,7 @@ const Profile = ({ backgroundColorClass }) => {
                 <small className="text-gray-500">Anterior: {profesor.emailPersonal}</small>
               </>
             ) : (
-              <p className="text-gray-700">{profesor.emailPersonal}</p>
+              <p className={`${textColorClass}`}>{profesor.emailPersonal}</p>
             )}
           </div>
 
@@ -104,15 +125,15 @@ const Profile = ({ backgroundColorClass }) => {
                 <small className="text-gray-500">Anterior: {profesor.celular}</small>
               </>
             ) : (
-              <p className="text-gray-700">{profesor.celular}</p>
+              <p className={`${textColorClass}`}>{profesor.celular}</p>
             )}
           </div>
 
           <div className="mb-6">
             <label className="font-semibold block">Cursos Actuales:</label>
-            <ul className="list-disc list-inside text-left ml-6 text-gray-700">
+            <ul className="list-disc list-inside text-left ml-6">
               {profesor.cursos && profesor.cursos.map((curso, index) => (
-                <li key={index}>
+                <li key={index} className={`${textColorClass}`}>
                   {curso.nombre} - {curso.semestre}
                 </li>
               ))}

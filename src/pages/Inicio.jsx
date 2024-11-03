@@ -1,16 +1,16 @@
-import React from 'react'
-import Calendar from '../components/PaginaInicio/Calendar'
-import InterestContent from '../components/PaginaInicio/InterestContent'
-import Footer from '../components/PaginaInicio/Footer'
+import React from 'react';
+import Calendar from '../components/PaginaInicio/Calendar';
+import InterestContent from '../components/PaginaInicio/InterestContent';
+import Footer from '../components/PaginaInicio/Footer';
 
-const Inicio = () => {
+const Inicio = ({ backgroundColorClass }) => {
     return (
         <>
-          <Calendar />
-          <InterestContent />
+          <Calendar backgroundColorClass={backgroundColorClass} />
+          <InterestContent backgroundColorClass={backgroundColorClass} />
           <Footer />
         </>
-    )
+    );
 }
 
-export default Inicio
+export default Inicio;

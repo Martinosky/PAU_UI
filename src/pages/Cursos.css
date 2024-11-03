@@ -1,42 +1,80 @@
 .container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .subjects {
-    margin-top: 20px;
-  }
-  
-  .subjects h2 {
-    color: #f0f0f0;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #444;
-  }
-  
-  th {
-    background-color: #333;
-    color: #f0f0f0;
-  }
-  
-  td {
-    background-color: #2a2a2a;
-  }
-  
-  tbody tr:hover {
-    background-color: #3a3a3a;
-  }
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.subjects {
+  margin-top: 20px;
+}
+
+.subjects h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Clases para el color de fondo de los encabezados */
+.bg-dark .subjects h2,
+.bg-terracota .subjects h2,
+.bg-khaki .subjects h2,
+.bg-white .subjects h2 {
+  color: #f0f0f0; /* Color claro para fondos oscuros */
+}
+
+.bg-khaki .subjects h2,
+.bg-white .subjects h2 {
+  color: black; /* Cambiar a negro para fondo blanco y khaki */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 2px solid #444; /* Aumentar el grosor de la línea de la tabla */
+}
+
+.bg-dark th,
+.bg-terracota th,
+.bg-khaki th,
+.bg-white th {
+  background-color: #333; /* Color del fondo de encabezados */
+  color: #f0f0f0; /* Color claro para texto de encabezados */
+}
+
+.bg-khaki th,
+.bg-white th {
+  background-color: #f0f0f0; /* Fondo claro para encabezados en khaki y blanco */
+  color: black; /* Color negro para el texto de encabezados */
+}
+
+td {
+  background-color: #2a2a2a; /* Fondo oscuro para celdas */
+}
+
+.bg-khaki td {
+  background-color: #f9f9f9; /* Fondo claro para celdas en khaki */
+  color: black; /* Color negro para el texto de las celdas en khaki */
+}
+
+.bg-white td {
+  background-color: white; /* Fondo blanco para celdas */
+  color: black; /* Color negro para el texto de las celdas en blanco */
+}
+
+tbody tr:hover {
+  background-color: #3a3a3a; /* Color al pasar el mouse sobre la fila */
+}
+
+.highlight-link {
+  color: #ffcc00; /* Color de resaltado para el enlace */
+  text-decoration: underline; /* Subrayado para el enlace */
+}
+
+.highlight-link:hover {
+  color: #ff9900; /* Cambiar color al pasar el mouse */
+}

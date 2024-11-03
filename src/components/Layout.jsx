@@ -15,11 +15,11 @@ const Layout = ({ backgroundColorClass, setBackgroundColor }) => {
       <div className={`layout ${backgroundColorClass} min-h-screen w-full`}>
         <Routes>
           <Route path="/" element={<PaginaInicio />} />
-          <Route path="/Inicio" element={<><Navbar /><Inicio /></>} />
-          <Route path="/Ayudantes/:courseId" element={<><Navbar /><Ayudantes /></>} /> {/* Ruta dinámica */}
-          <Route path="/Cursos" element={<><Navbar /><Cursos /></>} />
-          <Route path="/settings" element={<><Navbar /><Settings onBackgroundChange={setBackgroundColor} /></>} />
-          <Route path="/profile" element={<><Navbar /><Profile backgroundColorClass={backgroundColorClass} /></>} />
+          <Route path="/Inicio" element={<><Navbar backgroundColorClass={backgroundColorClass} /><Inicio backgroundColorClass={backgroundColorClass} /></>} />
+          <Route path="/Ayudantes/:courseId" element={<><Navbar backgroundColorClass={backgroundColorClass}  /><Ayudantes backgroundColorClass={backgroundColorClass}  /></>} /> {/* Ruta dinámica */}
+          <Route path="/Cursos" element={<><Navbar backgroundColorClass={backgroundColorClass}  /><Cursos backgroundColorClass={backgroundColorClass} /></>} />
+          <Route path="/settings" element={<><Navbar backgroundColorClass={backgroundColorClass}  /><Settings onBackgroundChange={setBackgroundColor} /></>} />
+          <Route path="/profile" element={<><Navbar backgroundColorClass={backgroundColorClass}  /><Profile backgroundColorClass={backgroundColorClass} /></>} />
         </Routes>
       </div>
     </BrowserRouter>

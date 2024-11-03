@@ -1,37 +1,29 @@
+// Settings.js
 import React, { useState } from 'react';
 
-const Settings = ({ onBackgroundChange, onLanguageChange }) => {
-  // Recuperar valores desde localStorage o usar un valor por defecto si no existen
+const Settings = ({ onBackgroundChange }) => {
   const initialBackground = localStorage.getItem('background') || 'bg-white';
-  const initialLanguage = localStorage.getItem('language') || 'en';
-
   const [background, setBackground] = useState(initialBackground);
-  const [language, setLanguage] = useState(initialLanguage);
 
   const handleBackgroundChange = (e) => {
     const selectedBackground = e.target.value;
     setBackground(selectedBackground);
     onBackgroundChange(selectedBackground);
-    // Guardar el valor en localStorage
     localStorage.setItem('background', selectedBackground);
   };
 
-  const handleLanguageChange = (e) => {
-    const selectedLanguage = e.target.value;
-    setLanguage(selectedLanguage);
-    onLanguageChange(selectedLanguage);
-    // Guardar el valor en localStorage
-    localStorage.setItem('language', selectedLanguage);
-  };
-
-  // Ajuste de clases para texto y fondo del contenedor según la selección
-  const containerClass = `${background} p-8 rounded-lg shadow-lg w-full max-w-md mx-auto transition-all duration-300`;
-  const textColorClass = background === 'bg-dark' || background === 'bg-terracota' ? 'text-white' : 'text-gray-900';
-  const selectBackgroundClass = background === 'bg-dark' || background === 'bg-terracota' ? 'bg-gray-700 text-white' : 'bg-white text-black';
+  const textColorClass =
+    background === 'bg-dark' || background === 'bg-terracota'
+      ? 'text-white'
+      : 'text-gray-900';
+  const selectBackgroundClass =
+    background === 'bg-dark' || background === 'bg-terracota'
+      ? 'bg-gray-700 text-white'
+      : 'bg-white text-black';
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className={`${containerClass} ${textColorClass}`}>
+    <div className={`min-h-screen flex items-center justify-center ${background} transition-all duration-300`}>
+      <div className={`p-8 rounded-lg shadow-lg w-full max-w-md mx-auto ${textColorClass} border-4 ${background === 'bg-dark' ? 'border-yellow-500' : 'border-gray-300'}`}>
         <h1 className="text-2xl font-semibold mb-6">Configuración</h1>
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Tema de fondo:</label>
@@ -49,11 +41,10 @@ const Settings = ({ onBackgroundChange, onLanguageChange }) => {
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Idioma:</label>
           <select
-            value={language}
-            onChange={handleLanguageChange}
+            value="es"
+            disabled
             className={`w-full p-2 border rounded-lg ${selectBackgroundClass} focus:outline-none focus:ring-2 focus:ring-blue-500`}
           >
-            <option value="en" className="bg-white text-black">English</option>
             <option value="es" className="bg-white text-black">Español</option>
           </select>
         </div>

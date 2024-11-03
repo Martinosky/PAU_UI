@@ -1,19 +1,30 @@
 {
-    "nombreCompleto": "Juan Pérez González",
-    "rut": "12.345.678-9",
-    "emailInstitucional": "juan.perez@usm.cl",
-    "emailPersonal": "jperez@gmail.com",
-    "celular": "912345678",
-    "fotoPerfil": "", 
-    "cursos": [
-      {
-        "nombre": "TEL101 - Introducción a las Telecomunicaciones",
-        "semestre": "Otoño 2024"
-      },
-      {
-        "nombre": "TEL203 - Redes de Computadores",
-        "semestre": "Primavera 2024"
-      }
-    ]
-  }
-  
+  "nombreCompleto": "Juan Pérez González",
+  "rut": "12.345.678-9",
+  "emailInstitucional": "juan.perez@usm.cl",
+  "emailPersonal": "jperez@gmail.com",
+  "celular": "912345678",
+  "fotoPerfil": "", 
+  "cursos": [
+    {
+      "nombre": "MAT101 - Matemáticas I",
+      "semestre": "2/2024"
+    },
+    {
+      "nombre": "FIS102 - Física II",
+      "semestre": "2/2024"
+    },
+    {
+      "nombre": "BIO201 - Biología I",
+      "semestre": "2/2024"
+    },
+    {
+      "nombre": "QUI202 - Química II",
+      "semestre": "2/2024"
+    },
+    {
+      "nombre": "INF103 - Informática III",
+      "semestre": "2/2024"
+    }
+  ]
+}

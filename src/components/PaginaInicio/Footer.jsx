@@ -1,9 +1,16 @@
-// Footer.js
 import React from 'react';
 
-function Footer() {
+function Footer({ backgroundColorClass }) {
+  const footerClass = backgroundColorClass === 'bg-dark'
+    ? 'bg-gray-800 text-white'
+    : backgroundColorClass === 'bg-terracota'
+    ? 'bg-red-900 text-white'
+    : backgroundColorClass === 'bg-khaki'
+    ? 'bg-yellow-200 text-black'
+    : 'bg-blue-900 text-white';
+
   return (
-    <footer className="bg-blue-900 text-white py-10 px-4">
+    <footer className={`${footerClass} py-10 px-4`}>
       <div className="max-w-screen-lg mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
           <div>

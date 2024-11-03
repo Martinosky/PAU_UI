@@ -4,7 +4,7 @@ import './Ayudantes.css';
 import data from '../data.json';
 import Footer from '../components/PaginaInicio/Footer';
 
-function Ayudantes() {
+function Ayudantes({ backgroundColorClass }) {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const [applicants, setApplicants] = useState([]);
@@ -81,9 +81,43 @@ function Ayudantes() {
     }
   };
 
+  // Clases dinámicas para el texto y las tablas
+  const textColorClass = 
+    backgroundColorClass === 'bg-dark' || backgroundColorClass === 'bg-terracota'
+      ? 'text-white'
+      : 'text-black';
+  
+  const tableHeaderClass = 
+    backgroundColorClass === 'bg-dark'
+      ? 'bg-gray-800 text-white'
+      : backgroundColorClass === 'bg-terracota'
+      ? 'bg-red-900 text-white'
+      : backgroundColorClass === 'bg-khaki'
+      ? 'bg-yellow-200 text-black'
+      : 'bg-gray-100 text-black';
+
+  const tableCellClass = 
+    backgroundColorClass === 'bg-dark'
+      ? 'bg-gray-700'
+      : backgroundColorClass === 'bg-terracota'
+      ? 'bg-red-800'
+      : backgroundColorClass === 'bg-khaki'
+      ? 'bg-yellow-300'
+      : 'bg-white';
+
+  // Clases dinámicas para el pop-up de información del alumno
+  const modalContentClass = 
+    backgroundColorClass === 'bg-dark'
+      ? 'bg-gray-800 text-white'
+      : backgroundColorClass === 'bg-terracota'
+      ? 'bg-red-900 text-white'
+      : backgroundColorClass === 'bg-khaki'
+      ? 'bg-yellow-200 text-black'
+      : 'bg-white text-black';
+
   return (
     <>
-      <div className="container">
+      <div className={`container ${backgroundColorClass} ${textColorClass}`}>
         <div className="ayudantes">
           <div className="header">
             <button className="back-btn" onClick={() => navigate('/Cursos')}>
@@ -98,12 +132,12 @@ function Ayudantes() {
           </div>
           <div className="buttons">
             <button className="btn">Descargar Excel</button>
-            <button className="btn secondary">Ver/Modificar Criterios</button>
+            <button className="btn secondary" onClick={() => alert("Esta función aún no está disponible.")}>Ver/Modificar Criterios</button>
           </div>
 
           <table>
             <thead>
-              <tr>
+              <tr className={tableHeaderClass}>
                 <th>Sel</th>
                 <th>Alumno</th>
                 <th>Nivel</th>
@@ -123,7 +157,7 @@ function Ayudantes() {
                 </tr>
               ) : (
                 applicants.map((applicant, index) => (
-                  <tr key={index}>
+                  <tr key={index} className="hover:bg-gray-700">
                     <td>
                       <input
                         type="checkbox"
@@ -131,14 +165,14 @@ function Ayudantes() {
                         onChange={() => handleSelectApplicant(index)}
                       />
                     </td>
-                    <td>{applicant.alumno}</td>
-                    <td>{applicant.nivel}</td>
-                    <td>{applicant.pa}</td>
-                    <td>{applicant.vecesAyu}</td>
-                    <td>{applicant.tipo}</td>
-                    <td>{applicant.paralelo}</td>
-                    <td>{applicant.prioPost}</td>
-                    <td>{priorities[index] || ''}</td>
+                    <td className={tableCellClass}>{applicant.alumno}</td>
+                    <td className={tableCellClass}>{applicant.nivel}</td>
+                    <td className={tableCellClass}>{applicant.pa}</td>
+                    <td className={tableCellClass}>{applicant.vecesAyu}</td>
+                    <td className={tableCellClass}>{applicant.tipo}</td>
+                    <td className={tableCellClass}>{applicant.paralelo}</td>
+                    <td className={tableCellClass}>{applicant.prioPost}</td>
+                    <td className={tableCellClass}>{priorities[index] || ''}</td>
                     <td className="actions">
                       <button className="icon-btn" onClick={() => handleDeleteApplicant(index)}>✖</button>
                       <button className="icon-btn" onClick={() => openModal(applicant)}>🔍</button>
@@ -162,9 +196,10 @@ function Ayudantes() {
         </div>
       )}
 
+      {/* Modal de información del alumno */}
       {selectedApplicant && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className={`modal-content ${modalContentClass}`} onClick={(e) => e.stopPropagation()}>
             <h3>{selectedApplicant.alumno}</h3>
             <div className="modal-section">
               <h4>Datos académicos</h4>

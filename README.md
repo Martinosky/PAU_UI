@@ -1,8 +1,11 @@
-# React + Vite
+Link de github:
+https://github.com/Martinosky/PAU_UI
 
-Esta plantilla proporciona una configuración mínima para que React funcione en Vite con HMR y algunas reglas de ESLint.
-
-Actualmente, hay dos plugins oficiales disponibles:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) usa [Babel](https://babeljs.io/) para Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) usa [SWC](https://swc.rs/) para Fast Refresh
+Manuel de la Hoz 202004064-8 
+Matías Pérez 201930011-3 
+Martín Ortega, 202030031-3
+ 
+Intalar node_modules con el comando:
+npm install
+Ejecutar el proyecto con el comando:
+npm run dev

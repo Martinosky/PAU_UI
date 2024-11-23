@@ -1,3 +1,4 @@
+/* Clases generales */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -14,19 +15,7 @@
   margin-bottom: 10px;
 }
 
-/* Clases para el color de fondo de los encabezados */
-.bg-dark .subjects h2,
-.bg-terracota .subjects h2,
-.bg-khaki .subjects h2,
-.bg-white .subjects h2 {
-  color: #f0f0f0; /* Color claro para fondos oscuros */
-}
-
-.bg-khaki .subjects h2,
-.bg-white .subjects h2 {
-  color: black; /* Cambiar a negro para fondo blanco y khaki */
-}
-
+/* Estilos para tablas */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -35,39 +24,15 @@ table {
 th, td {
   padding: 10px;
   text-align: left;
-  border: 2px solid #444; /* Aumentar el grosor de la línea de la tabla */
+  border: 2px solid #444;
 }
 
-.bg-dark th,
-.bg-terracota th,
-.bg-khaki th,
-.bg-white th {
-  background-color: #333; /* Color del fondo de encabezados */
-  color: #f0f0f0; /* Color claro para texto de encabezados */
-}
-
-.bg-khaki th,
-.bg-white th {
-  background-color: #f0f0f0; /* Fondo claro para encabezados en khaki y blanco */
-  color: black; /* Color negro para el texto de encabezados */
-}
-
-td {
-  background-color: #2a2a2a; /* Fondo oscuro para celdas */
-}
-
-.bg-khaki td {
-  background-color: #f9f9f9; /* Fondo claro para celdas en khaki */
-  color: black; /* Color negro para el texto de las celdas en khaki */
-}
-
-.bg-white td {
-  background-color: white; /* Fondo blanco para celdas */
-  color: black; /* Color negro para el texto de las celdas en blanco */
+tbody tr {
+  cursor: pointer; /* Indica que la fila es clickeable */
 }
 
 tbody tr:hover {
-  background-color: #3a3a3a; /* Color al pasar el mouse sobre la fila */
+  background-color: #3a3a3a; /* Resaltado al pasar el mouse sobre la fila */
 }
 
 .highlight-link {
@@ -77,4 +42,51 @@ tbody tr:hover {
 
 .highlight-link:hover {
   color: #ff9900; /* Cambiar color al pasar el mouse */
+}
+
+
+/* Colores dinámicos para encabezados */
+.bg-dark th,
+.bg-terracota th,
+.bg-khaki th,
+.bg-white th {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.bg-khaki th,
+.bg-white th {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+/* Colores dinámicos para celdas */
+td {
+  background-color: #2a2a2a;
+}
+
+.bg-khaki td {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+.bg-white td {
+  background-color: white;
+  color: black;
+}
+
+/* Resaltado al pasar el mouse */
+tbody tr:hover {
+  background-color: #3a3a3a; /* Color al pasar el mouse sobre filas */
+}
+
+/* Estilos para enlaces de filas */
+.row-link {
+  display: table-row; /* Mantiene el diseño como fila de tabla */
+  text-decoration: none; /* Sin subrayado */
+  color: inherit; /* Hereda el color del texto */
+}
+
+.row-link:hover td {
+  background-color: #444; /* Resaltado en hover */
 }

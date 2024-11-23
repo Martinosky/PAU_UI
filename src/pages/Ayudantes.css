@@ -89,6 +89,66 @@ th, td {
   max-width: 500px;
   width: 90%;
 }
+/* Botón confirmar */
+.confirm-btn {
+  background: #28a745; /* Verde */
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background: #218838; /* Verde más oscuro */
+}
+
+/* Botón cancelar */
+.cancel-btn {
+  background: #ff0000; /* Rojo */
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: #cc0000; /* Rojo más oscuro */
+}
+
+/* Footer del modal */
+.modal-footer {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 1rem; /* Espaciado entre botones */
+  margin-top: 1.5rem; /* Separación del texto */
+}
+/* Botón deshabilitado */
+.btn.disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Botón habilitado */
+.btn.active {
+  background: #007bff; /* Azul */
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn.active:hover {
+  background: #0056b3; /* Azul más oscuro */
+}
+
+
 
 .success-popup {
   background-color: #4caf50; /* Color de fondo para el pop-up de éxito */
@@ -97,14 +157,35 @@ th, td {
   border-radius: 5px;
   text-align: center;
 }
-
 .close-btn {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
+  background: #ff0000; /* Fondo rojo */
+  color: #fff; /* Texto blanco */
+  font-size: 1.2rem; /* Tamaño del texto */
   font-weight: bold;
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 0.5rem 1rem; /* Espaciado */
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+.close-btn:hover {
+  background: #cc0000; /* Oscurecer el rojo al pasar el mouse */
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center; /* Centrar el botón */
+  margin-top: 1rem; /* Separación del contenido anterior */
+}
+
+.centered-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Espaciado entre el ícono y el texto */
+}
+
 
 .icon-btn {
   background: none;
@@ -129,7 +210,7 @@ th, td {
 }
 
 .bg-khaki .modal-content {
-  background-color: #e6e6e6; /* Fondo khaki */
+  background-color: #9b2c2c; /* Fondo khaki */
 }
 
 /* Ajustes visuales en la tabla */
@@ -145,3 +226,5 @@ th, td {
 th {
   border-bottom: 2px solid #ddd;
 }
+
+

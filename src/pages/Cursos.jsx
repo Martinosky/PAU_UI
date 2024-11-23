@@ -2,20 +2,22 @@ import React, { useState, useEffect } from 'react';
 import './Cursos.css';
 import data from '../data.json';
 import Footer from '../components/PaginaInicio/Footer';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Cursos = ({ backgroundColorClass }) => {
   const [subjects, setSubjects] = useState([]);
+  const navigate = useNavigate(); // Hook para navegar programáticamente
 
   useEffect(() => {
     setSubjects(data.courses);
   }, []);
 
-  // Definir clases de color según el fondo seleccionado
+  // Clases de color dinámicas según el fondo seleccionado
   const textColorClass = 
     backgroundColorClass === 'bg-dark' || backgroundColorClass === 'bg-terracota'
       ? 'text-white'
-      : 'text-black'; // Asegúrate de que el texto sea negro si no es oscuro
+      : 'text-black';
 
   const tableHeaderClass = 
     backgroundColorClass === 'bg-dark'
@@ -34,6 +36,10 @@ const Cursos = ({ backgroundColorClass }) => {
       : backgroundColorClass === 'bg-khaki'
       ? 'bg-yellow-300'
       : 'bg-white';
+
+  const handleRowClick = (sigla) => {
+    navigate(`/Ayudantes/${sigla}`); // Navega a la página de Ayudantes
+  };
 
   return (
     <>
@@ -59,15 +65,24 @@ const Cursos = ({ backgroundColorClass }) => {
                 </tr>
               ) : (
                 subjects.map((subject, index) => (
-                  <tr key={index} className="hover:bg-gray-700">
-                    <td className={tableCellClass}>{subject.sigla}</td>
-                    <td className={tableCellClass}>{subject.asignatura}</td>
-                    <td className={tableCellClass}>{subject.creditos}</td>
-                    <td className={tableCellClass}>{subject.paralelo}</td>
-                    <td className={tableCellClass}>{subject.area}</td>
-                    <td className={tableCellClass}>{subject.campus}</td>
-                    <td className={tableCellClass}>
-                      <Link to={`/Ayudantes/${subject.sigla}`} className={`font-semibold ${textColorClass} highlight-link`}>Ver Ayudantes</Link>
+                  <tr
+                    key={index}
+                    className={`hover:bg-gray-700 cursor-pointer ${tableCellClass}`}
+                    onClick={() => handleRowClick(subject.sigla)} // Clickeable en toda la fila
+                  >
+                    <td>{subject.sigla}</td>
+                    <td>{subject.asignatura}</td>
+                    <td>{subject.creditos}</td>
+                    <td>{subject.paralelo}</td>
+                    <td>{subject.area}</td>
+                    <td>{subject.campus}</td>
+                    <td>
+                      <Link 
+                        to={`/Ayudantes/${subject.sigla}`} 
+                        className={`font-semibold ${textColorClass} highlight-link`}
+                      >
+                        Ver Ayudantes
+                      </Link>
                     </td>
                   </tr>
                 ))
@@ -79,6 +94,6 @@ const Cursos = ({ backgroundColorClass }) => {
       <Footer />
     </>
   );
-}
+};
 
 export default Cursos;
